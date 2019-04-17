@@ -1,0 +1,106 @@
+@import './var.scss';
+
+@mixin absoluteContainer() {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+@mixin fullScreenSize($position: absolute) {
+  position: $position;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin setShadow() {
+  box-shadow: 0 0.5px rgba(178, 178, 178, 1);
+}
+
+@mixin box-sizing($sizing:border-box) {
+  -webkit-box-sizing: $sizing;
+  -moz-box-sizing: $sizing;
+  box-sizing: $sizing;
+
+}
+
+@mixin border($direction, $color:$borderColor) {
+  border-#{$direction}: 1px solid $color;
+}
+
+@mixin four-border($color:$borderColor) {
+  border: 1px solid $color;
+}
+
+// 用于水平 垂直居中
+@mixin pos-center($width, $height) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -($width/2);
+  margin-top: -($height/2);
+  // backdrop-filter: blur(5px);
+  color: #fff;
+  text-align: center;
+  vertical-align: center;
+}
+
+//垂直居中
+@mixin vertical-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin border-1px($color) {
+  position: relative;
+  &:after {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid $color;
+    content: '';
+    transform: scaleY(0.5);
+    -webkit-transform: scaleY(0.5)
+  }
+}
+
+@mixin border-1px-all($color) {
+  position: relative;
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200%;
+    height: 200%;
+    border: 1px solid $color;
+    content: '';
+    transform-origin: left top;
+    transform: scale(0.5);
+  }
+}
+
+@mixin border-btm($color) {
+  position: relative;
+  &::after {
+    position: absolute;
+    display: block;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    content: " ";
+    border-top: 1px solid $color;
+    transform: scaleY(0.5);
+  }
+}
+
+@mixin border-none() {
+  &:after {
+    display: none;
+  }
+}
