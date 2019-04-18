@@ -16,8 +16,7 @@ module.exports = {
     ...pages
   },
   // 生产环境是否生成 sourceMap 文件
-  productionSourceMap:
-    false,
+  productionSourceMap: false,
   // css相关配置
   css:
     {
@@ -31,6 +30,8 @@ module.exports = {
       modules: false
     }
   ,
+  //将其设置为true允许您使用templateVue组件中的选项
+  runtimeCompiler: true,
   devServer: {
     proxy: {
       '/api':

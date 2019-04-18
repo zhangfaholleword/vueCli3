@@ -1,5 +1,3 @@
-import store from '../index'
-
 export const MODULE_NAME = 'goods'
 export default {
   namespaced: true,
